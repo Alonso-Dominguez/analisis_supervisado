@@ -2,9 +2,11 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from joblib import dump, load
 
 data = {
-    "tiempo_minutos" : [5, 8, 12, 2, 20, 15, 3], 
+    "tiempo_minutos" : [5, 8, 12, 2, 20, 15, 3, 12, ], 
     "paginas_visitadas" : [3, 5, 7, 1, 10, 8, 2], 
     "compro" : [0, 0, 1, 0, 1, 1, 0]
 }
@@ -23,3 +25,4 @@ y_pred = model.predict(X_test)
 
 print(X_test)
 print(y_pred)
+print(f"Precision {accuracy_score(y_test, y_pred):0%}")
